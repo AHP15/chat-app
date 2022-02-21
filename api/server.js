@@ -6,6 +6,8 @@ import DB from "./models/index.js";
 import AUTHENTICATION from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import chatRoutes from "./routes/chat.routes.js";
+import path, { dirname } from "path";
+import { fileURLToPath } from 'url';
 
 const app = express();
 
@@ -32,6 +34,13 @@ DB.mongoose.connect(process.env.CONNECTION_URL)
 app.use("/api", AUTHENTICATION);
 app.use("/api", userRoutes);
 app.use("/api", chatRoutes);
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+});
 
 const PORT  = process.env.PORT ?? 8080;
 app.listen(PORT, () =>{

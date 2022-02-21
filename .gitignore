@@ -4,7 +4,7 @@ node_modules
 /client/node_modules
 /client/.pnp
 /client/.pnp.js
-#/client/src/url.js
+/client/src/url.js
 
 # testing
 /client/coverage
