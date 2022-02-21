@@ -1,7 +1,8 @@
 import axios from "axios";
+import {API_URL} from "../url";
 
 const instance = axios.create({
-    baseURL: "https://kalam-app.herokuapp.com/api/",
+    baseURL: API_URL+"api/",
     headers: {
       "Content-Type": "application/json",
     },

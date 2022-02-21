@@ -10,6 +10,7 @@ import Loader from "./Loader";
 import axios from "axios";
 import "../styles/Login.css";
 import { useAlert } from "../context/alertContext";
+import { API_URL } from "../url";
 
 
 function Register(){
@@ -57,7 +58,7 @@ function Register(){
         e.preventDefault();
         setloading(true);
         
-        let url = "http://localhost:8080/api/auth/register";
+        let url = API_URL+"api/auth/register";
         const config = {
             headers: {
             "Content-Type": "application/json",
