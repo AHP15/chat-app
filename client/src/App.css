@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Open+Sans:wght@300&family=Outfit:wght@300&family=Roboto:ital,wght@0,100;0,300;1,300&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.header p:hover{
+    background-color:rgba(255, 255, 255, 1) !important;
+    color:darkblue;
+}
+.alert{
+    position: absolute;
+    bottom:15px;
+    left: 15px;
+    width: 95%;
+    max-width: 350px;
+    z-index: 20;
+}

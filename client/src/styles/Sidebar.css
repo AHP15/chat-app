@@ -1,0 +1,63 @@
+@media (min-width:250px) {
+    .dashboard{
+        background-color: darkgreen;
+        padding:5px;
+        height: 100vh;
+    }
+    .sidebar{
+        width:100%;
+        height: 85vh;
+        max-width: 400px;
+        background-color:rgba(255, 255, 255, 0.2);
+        border:1px solid white;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content: center;
+    }
+    .skeleton{
+        margin: 10px !important;
+    }
+    .sidebar_container{
+        width: 100%;
+        display: flex;
+        align-items:center;
+        color:white;
+        font-size:20px;
+        margin-bottom: 10px;
+    }
+    .sidebar_container > p{
+        background-color:darkgreen;
+        width: 100%;
+        padding:20px;
+        border: 1px solid white;
+        text-align:center;
+        cursor: pointer;
+        transition:0.3s
+    }
+    .sidebar_container > p:hover{
+        opacity: 0.8
+    }
+    .new_btn{
+        background-color:darkgreen;
+        color:white;
+        width: 100%;
+        padding:20px;
+        text-align:center;
+        font-size:20px;
+        cursor: pointer;
+        border: 1px solid white;
+        transition:0.3s;
+    }
+    .new_btn:hover{
+        opacity: 0.8
+    }
+    .sidebar_content{
+        flex: 1;
+        overflow-y: scroll;
+        width: 100%;
+    }
+    .sidebar_content::-webkit-scrollbar{
+        display: none;
+    }
+}

@@ -1,0 +1,14 @@
+@media (min-width:250px) {
+    .chat_card{
+        width: 100%;
+        border-top:1px solid white;
+        border-bottom:1px solid white;
+        color:white;
+        padding:15px;
+        cursor: pointer;
+        transition:0.3s
+    }
+    .chat_card:hover{
+        background-color:rgba(255,255,255,0.5);
+    }
+}

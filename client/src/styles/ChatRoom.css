@@ -1,0 +1,24 @@
+@media (min-width:250px) {
+    .chat_header{
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 15px;
+        color: white;
+    }
+    .chat_messages{
+        flex:1;
+        overflow-y: scroll;
+    }
+    .chat_room > form{
+        width: 100%;
+        height: 60px;
+        background-color:rgba(255, 255, 255, 0.5);
+        display: flex;
+    }
+    .chat_room > form input{
+        flex:1;
+        border:none;
+        outline:none;
+        font-size:22px;
+        padding-left: 15px;
+    }
+}

@@ -1,0 +1,61 @@
+@media (min-width:250px) {
+    .chat_room{
+        border:1px solid white;
+        width: 100%;
+        max-width:calc(100% - 420px);
+        height: 85vh;
+        position:absolute;
+        right: 5px;
+        top: calc(10vh + 10px);
+        overflow: hidden;
+        display:flex;
+        flex-direction: column;
+    }
+    .model{
+        position:absolute;
+        z-index: 10;
+        inset: 0;
+        background-color:rgba(0, 0, 0, 0.6);
+        display:grid;
+        place-items: center;
+    }
+    .model > form {
+        width:95%;
+        max-width:400px;
+        height: 400px;
+        background-color:rgba(255, 255, 255, 0.2);
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        border-radius:5px;
+        position: relative;
+        animation: show 1s alternate;
+    }
+    @keyframes show {
+        from{
+            transform: scale(0);
+        }
+        to{
+            transform: scale(1)
+        }
+    }
+    .model > form > h1{
+        color:white;
+        padding:15px;
+    }
+    .model > form > input{
+        width: 100%;
+        padding:10px;
+        font-size:20px;
+    }
+    .contact_container{
+        margin:15px;
+        overflow-y:scroll;
+        height: 200px;
+    }
+    .contact_container::-webkit-scrollbar{
+        display:none;
+    }
+}
