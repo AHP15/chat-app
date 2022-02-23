@@ -1,8 +1,7 @@
 @media (min-width:250px) {
     .chat_room{
         border:1px solid white;
-        width: 100%;
-        max-width:calc(100% - 420px);
+        width: 98%;
         height: 85vh;
         position:absolute;
         right: 5px;
@@ -57,5 +56,10 @@
     }
     .contact_container::-webkit-scrollbar{
         display:none;
+    }
+}
+@media (min-width:771px){
+    .chat_room{
+        max-width:calc(100% - 420px);
     }
 }

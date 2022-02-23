@@ -65,7 +65,7 @@ function ChatRoom(){
         }
 
         getChat();
-    }, []);
+    }, [params]);
 
     useEffect(() =>{
         
@@ -76,8 +76,7 @@ function ChatRoom(){
             socketRef.current = socket;
             socket?.on("connect_error", (err) => {
                 console.log(err);
-                if(err.message === "No token is provided"){
-    
+                if(err.message === "Unauthorized! Access Token was expired!"){
                 }
             });
             socket?.on("server-chat", (newMessage) =>{
@@ -86,18 +85,23 @@ function ChatRoom(){
                    ...prev,
                    messages:[...prev.messages, newMessage]
                 }));
-                endChat.current.scrollIntoView({smooth :true});
+                endChat.current.scrollIntoView({behavior: 'smooth'});
             });
         }
         if(chat && socketRef.current){
             socket.emit("join-chat", chat._id);
-        } 
+        }
 
         return () => {
             socket?.disconnect();
             socketRef.current = null;
         }
     }, [chat]);
+
+    useEffect(() =>{
+        endChat?.current?.scrollIntoView({behavior: 'smooth'});
+        console.log(endChat);
+    }, [endChat.current, chat]);
 
     function sendMessage(e) {
         e.preventDefault();
@@ -117,7 +121,7 @@ function ChatRoom(){
         return (
             <div className="dashboard">
                 <Header />
-                <Sidebar New={setModel} />
+                <Sidebar New={setModel} responsive={true} />
                 <div className="chat_room">
                     {
                         Array(5).fill(null).map((_, i) =>(
@@ -137,7 +141,7 @@ function ChatRoom(){
     return (
         <div className="dashboard">
             <Header />
-            <Sidebar New={setModel} />
+            <Sidebar New={setModel} responsive={true}/>
             {model === "chat" && <ChatModel close={() =>setModel(null)} />}
             {model === "contact" && <ContactModel close={() =>setModel(null)} />}
             <div className="chat_room">
@@ -158,7 +162,7 @@ function ChatRoom(){
                             />
                         ))
                     }
-                    <div ref={endChat}></div> 
+                    <div style={{ height: '50px'}} ref={endChat}></div> 
                 </div>
                 <form onSubmit={sendMessage}>
                     <input

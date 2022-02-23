@@ -6,7 +6,7 @@ import ChatCard from "./ChatCard";
 import ContactCard from "./ContactCard";
 
 
-function Sidebar({New}){
+const Sidebar = ({New, responsive}) =>{
     const { user } = useAuth();
     const [loading, setLoading] = useState(true);
     const [chats, setChats] = useState(false);
@@ -38,7 +38,7 @@ function Sidebar({New}){
 
     if(loading){
         return (
-            <div className="sidebar">
+            <div className={`sidebar ${responsive? "responsive":""}`}>
                 {
                     Array(4).fill(null).map((_, i) => (
                         <Skeleton
@@ -55,7 +55,7 @@ function Sidebar({New}){
     }
 
     return (
-        <div className="sidebar">
+        <div className={`sidebar ${responsive? "responsive":""}`}>
             <div className="sidebar_container">
                 <p
                   onClick={() =>setChats(prev => !prev)}
@@ -83,6 +83,6 @@ function Sidebar({New}){
             >{chats? "New Chat":"New Contact"}</p>
         </div>
     );
-}
+};
 
 export default Sidebar;

@@ -13,10 +13,6 @@ export const addChat = async (req, res) =>{
             await _user.save();
         });
         
-        /*
-        const user = await User.findById(req.userId);
-        user.chats.push(chat._id);*/
-        
         
         res.status(201).send({
             success: true,
@@ -50,12 +46,17 @@ export const exitChat = async (req, res) =>{
         const chat = await Chat.findById(req.body.chatId);
         chat.users = chat.users.filter(user => String(user._id) !== req.userId);
         await chat.save();
+
+        const user = await User.findById(req.userId);
+        user.chats = user.chats.filter(id => String(id) !== String(chat._id));
+        await user.save();
         
         res.status(200).send({
             success: true,
             chat:chat._id
         });
     }catch(err){
+        console.log(err);
         res.status(500).send({
             success:false,
             message:err.message

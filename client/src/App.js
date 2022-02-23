@@ -84,7 +84,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/chat" element={<Dashboard />} />
-          <Route path="/chat/:id" element={<ChatRoom />} />
+          <Route exact path="/chat/:id" element={<ChatRoom />} />
         </Routes>
       </Router>
 

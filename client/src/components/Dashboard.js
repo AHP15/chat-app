@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/userContext";
 import ChatModel from "./ChatModel";
@@ -17,11 +17,13 @@ function Dashboard(){
             navigate("/")
         }
     }, [user, navigate]);
+
+    const callback = useCallback(setModel, []);
     
     return (
         <div className="dashboard">
             <Header />
-            <Sidebar New={setModel} />
+            <Sidebar New={callback} />
             {model === "chat" && <ChatModel close={() =>setModel(null)} />}
             {model === "contact" && <ContactModel close={() =>setModel(null)} />}
         </div>

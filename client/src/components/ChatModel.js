@@ -110,7 +110,7 @@ function ChatModel({close}){
                 <div className="contact_container">
                     {
                         user.info?.contacts?.map(contact => (
-                            <div>
+                            <div key={contact.email}>
                                 <input
                                    type="checkbox"
                                    value={data.users.includes(contact.id)}
